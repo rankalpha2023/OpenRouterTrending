@@ -46,27 +46,41 @@ class OpenRouterFetcher:
             return result.stdout
     
     def _extract_rankmap_section(self, content: str, period: str = 'day') -> Optional[str]:
-        """Extract the rankMap section for a specific period (day/week/month)."""
+        """Extract the rankMap section for a specific period (day/week/month).
+        
+        Note: OpenRouter currently only provides 'day' data in the page HTML.
+        The 'week' and 'month' periods are not available in the embedded data.
+        """
+        # The rankMap structure is: rankMap\":{\"day\":[{...}]}
+        # Only 'day' is currently available
         period_key = f'"{period}"'
-        start_pattern = f'rankMap\\":{{\\"{period}\\":'
         
-        start_idx = content.find(start_pattern)
-        if start_idx < 0:
-            start_idx = content.find(f'rankMap\\":{{\\"{period}"')
+        # Find rankMap start
+        rankmap_start = content.find('rankMap\\":{')
+        if rankmap_start < 0:
+            return None
         
-        if start_idx < 0:
+        # Find the requested period array start
+        period_pattern = f'\\"{period}\\":['
+        period_start = content.find(period_pattern, rankmap_start)
+        
+        if period_start < 0:
+            # Try alternative pattern without escape
+            period_pattern = f'"{period}":['
+            period_start = content.find(period_pattern, rankmap_start)
+        
+        if period_start < 0:
             return None
         
         # Find the start of the array
-        array_start = content.find('[', start_idx)
+        array_start = content.find('[', period_start)
         if array_start < 0:
             return None
         
-        # Find the end - look for next period or closing braces
-        search_start = array_start + 1
+        # Find the end - count brackets to handle nested objects
         brace_count = 1
+        search_start = array_start + 1
         
-        # Find the matching closing bracket
         for i, char in enumerate(content[search_start:], search_start):
             if char == '[':
                 brace_count += 1

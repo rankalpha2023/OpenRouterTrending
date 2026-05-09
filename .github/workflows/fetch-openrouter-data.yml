@@ -21,15 +21,6 @@ on:
           - all
           - apps
           - models
-      period:
-        description: 'Time period'
-        required: false
-        type: choice
-        default: 'week'
-        options:
-          - day
-          - week
-          - month
 
   # Also run on push to main branch
   push:
@@ -53,8 +44,8 @@ jobs:
         run: |
           pip install requests
 
-      - name: Fetch OpenRouter data
-        id: fetch
+      - name: Fetch OpenRouter Top Apps data
+        id: fetch_apps
         run: |
           # Determine date
           DATE=$(date +%Y-%m-%d)
@@ -62,66 +53,26 @@ jobs:
             DATE="${{ inputs.date }}"
           fi
           
-          echo "Fetching data for date: $DATE"
+          echo "Fetching Top Apps data for date: $DATE"
           
-          # Fetch all sections
-          SECTION="${{ inputs.section || 'all' }}"
-          PERIOD="${{ inputs.period || 'week' }}"
-          
+          # Fetch Top Apps (always day period as week/month are not available in HTML)
           python fetch_openrouter_data.py \
             --output-dir data \
             --date "$DATE" \
-            --section "$SECTION" \
-            --period "$PERIOD"
-          
+            --section apps \
+            --period day
+
           echo "date=$DATE" >> $GITHUB_OUTPUT
 
       - name: Show fetched data files
         run: |
           echo "Data files created:"
-          find data -name "*.json" -type f | sort
+          ls -la data/top_apps/ 2>/dev/null || echo "No data files found"
 
       - name: Commit data
+        if: github.event_name != 'workflow_dispatch' || github.event.inputs.section != 'models'
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "Update OpenRouter rankings data - ${{ steps.fetch.outputs.date }}"
-          file_pattern: 'data/*.json data/**/*.json'
-          skip_dirty: false
-
-  # Also run weekly summary job
-  fetch-weekly-data:
-    runs-on: ubuntu-latest
-    # Only run weekly on Mondays
-    if: github.event_name == 'schedule' && github.event.schedule == '0 0 * * 1'
-    
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
-
-      - name: Install dependencies
-        run: |
-          pip install requests
-
-      - name: Fetch weekly data
-        run: |
-          # Fetch day, week, month data for comprehensive weekly snapshot
-          python fetch_openrouter_data.py --output-dir data --period day
-          python fetch_openrouter_data.py --output-dir data --period week
-          python fetch_openrouter_data.py --output-dir data --period month
-
-      - name: Show fetched data files
-        run: |
-          echo "Weekly data files created:"
-          find data -name "*.json" -type f | sort
-
-      - name: Commit weekly data
-        uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          commit_message: "Weekly OpenRouter rankings snapshot"
+          commit_message: "Update OpenRouter Top Apps - ${{ steps.fetch_apps.outputs.date }}"
           file_pattern: 'data/*.json data/**/*.json'
           skip_dirty: false
