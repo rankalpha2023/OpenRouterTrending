@@ -2,7 +2,7 @@
   "source": "https://openrouter.ai/rankings",
   "section": "Top Apps",
   "subsection": "Day (Today)",
-  "extracted_at": "2026-05-09T23:53:28.844043",
+  "extracted_at": "2026-05-09T16:23:46.411266",
   "period": "day",
   "description": "Top AI applications and agents ranked by token usage on OpenRouter",
   "total_apps": 20,
@@ -252,7 +252,7 @@
       "total_tokens": 6368921547,
       "total_requests": 406106,
       "app": {
-        "title": "Mira is the leading AI agent inside Telegram",
+        "title": "Mira",
         "slug": "mira",
         "description": "Mira is a Telegram-native AI assistant.",
         "origin_url": "https://mira.tg/",
