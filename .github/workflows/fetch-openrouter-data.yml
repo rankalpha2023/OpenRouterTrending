@@ -12,15 +12,6 @@ on:
         description: 'Date for data (YYYY-MM-DD, defaults to today)'
         required: false
         type: string
-      section:
-        description: 'Section to fetch'
-        required: false
-        type: choice
-        default: 'all'
-        options:
-          - all
-          - apps
-          - models
 
   # Also run on push to main branch
   push:
@@ -30,10 +21,23 @@ on:
 jobs:
   fetch-data:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+
+      - name: Set up Git
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -63,16 +67,25 @@ jobs:
             --period day
 
           echo "date=$DATE" >> $GITHUB_OUTPUT
+          echo "::set-output name=date::$DATE"
 
       - name: Show fetched data files
         run: |
           echo "Data files created:"
           ls -la data/top_apps/ 2>/dev/null || echo "No data files found"
 
-      - name: Commit data
-        if: github.event_name != 'workflow_dispatch' || github.event.inputs.section != 'models'
-        uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          commit_message: "Update OpenRouter Top Apps - ${{ steps.fetch_apps.outputs.date }}"
-          file_pattern: 'data/*.json data/**/*.json'
-          skip_dirty: false
+      - name: Commit and Push data
+        run: |
+          # Add data files
+          git add data/top_apps/*.json
+          
+          # Check if there are changes to commit
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            echo "Committing and pushing changes..."
+            COMMIT_DATE=$(date +%Y-%m-%d)
+            git commit -m "Update OpenRouter Top Apps - $COMMIT_DATE"
+            git push origin HEAD:${{ github.ref }}
+            echo "Push completed successfully"
+          fi
