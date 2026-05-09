@@ -1,5 +1,5 @@
 # HuggingFace data (auto-generated daily)
-data/
+# data/  # Uncomment to ignore data directory
 
 # Usage guide (for local reference only)
 *.txt

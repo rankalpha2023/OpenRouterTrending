@@ -76,8 +76,8 @@ jobs:
 
       - name: Commit and Push data
         run: |
-          # Add data files
-          git add data/top_apps/*.json
+          # Add data files (force to override .gitignore)
+          git add -f data/top_apps/*.json
           
           # Check if there are changes to commit
           if git diff --staged --quiet; then
