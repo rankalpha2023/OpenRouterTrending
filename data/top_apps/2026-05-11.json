@@ -1,0 +1,310 @@
+{
+  "source": "https://openrouter.ai/rankings",
+  "section": "Top Apps",
+  "subsection": "Day (Today)",
+  "extracted_at": "2026-05-11T03:59:12.626847",
+  "period": "day",
+  "description": "Top AI applications and agents ranked by token usage on OpenRouter",
+  "total_apps": 20,
+  "apps": [
+    {
+      "rank": 1,
+      "app_id": 3067167,
+      "total_tokens": 245893579791,
+      "total_requests": 4725451,
+      "app": {
+        "title": "Hermes Agent",
+        "slug": "hermes-agent",
+        "description": "Hermes Agent is an open-source, self-improving AI agent by Nous Research that runs persistently with memory across sessions, and builds reusable skills from experience. It comes with 40+ built-in tools, including web search, browser automation, and vision, plus scheduled automations and subagents.",
+        "origin_url": "https://hermes-agent.nousresearch.com/",
+        "categories": [
+          "personal-agent",
+          "cli-agent"
+        ]
+      }
+    },
+    {
+      "rank": 2,
+      "app_id": 2725608,
+      "total_tokens": 188631056884,
+      "total_requests": 3700310,
+      "app": {
+        "title": "OpenClaw",
+        "slug": "openclaw",
+        "description": "OpenClaw is an open-source AI agent that connects to your messaging apps and takes real actions on your behalf, from running commands and browsing the web to managing files and sending emails.",
+        "origin_url": "https://openclaw.ai/",
+        "categories": [
+          "personal-agent",
+          "cli-agent"
+        ]
+      }
+    },
+    {
+      "rank": 3,
+      "app_id": 2262242,
+      "total_tokens": 129657921741,
+      "total_requests": 2083264,
+      "app": {
+        "title": "Kilo Code",
+        "slug": "kilo-code",
+        "description": "Kilo Code is an open-source AI coding agent that works across VS Code, JetBrains, and CLI to help developers ship code faster with agentic workflows.",
+        "origin_url": "https://kilocode.ai/",
+        "categories": [
+          "cli-agent",
+          "ide-extension"
+        ]
+      }
+    },
+    {
+      "rank": 6,
+      "app_id": 2853275,
+      "total_tokens": 46506884288,
+      "total_requests": 757197,
+      "app": {
+        "title": "pi",
+        "slug": "pi",
+        "description": "There are many coding agents, but this one is yours.",
+        "origin_url": "https://pi.dev/",
+        "categories": [
+          "cli-agent"
+        ]
+      }
+    },
+    {
+      "rank": 9,
+      "app_id": 2627404,
+      "total_tokens": 35324378504,
+      "total_requests": 440917,
+      "app": {
+        "title": "Claude Code",
+        "slug": "claude-code",
+        "description": "Claude Code is Anthropic's agentic coding tool that reads your entire codebase, plans and executes changes across files, runs tests, and iterates on failures, all from natural language prompts.",
+        "origin_url": "https://claude.ai/",
+        "categories": [
+          "cli-agent"
+        ]
+      }
+    },
+    {
+      "rank": 10,
+      "app_id": 2637375,
+      "total_tokens": 32946114581,
+      "total_requests": 809087,
+      "app": {
+        "title": "Lemonade",
+        "slug": "lemonade",
+        "description": "The AI tool for Roblox games.",
+        "origin_url": "https://lemonade.gg/",
+        "categories": [
+          "programming-app"
+        ]
+      }
+    },
+    {
+      "rank": 11,
+      "app_id": 2308106,
+      "total_tokens": 29933120969,
+      "total_requests": 497144,
+      "app": {
+        "title": "Descript",
+        "slug": "descript",
+        "description": "AI Video \\u0026 Podcast Editor",
+        "origin_url": "https://descript.com/",
+        "categories": [
+          "video-gen"
+        ]
+      }
+    },
+    {
+      "rank": 12,
+      "app_id": 169155,
+      "total_tokens": 28461575618,
+      "total_requests": 2278923,
+      "app": {
+        "title": "Janitor AI",
+        "slug": "janitor-ai",
+        "description": "Janitor AI is a chatbot platform where users create and chat with custom AI characters for interactive roleplay, storytelling, and immersive fiction.",
+        "origin_url": "https://janitorai.com/",
+        "categories": [
+          "roleplay"
+        ]
+      }
+    },
+    {
+      "rank": 14,
+      "app_id": 2699842,
+      "total_tokens": 24736978399,
+      "total_requests": 914225,
+      "app": {
+        "title": "ISEKAI ZERO",
+        "slug": "isekai-zero",
+        "description": "AI adventures. Travel with your favorite characters",
+        "origin_url": "https://www.isekai.world/",
+        "categories": [
+          "game"
+        ]
+      }
+    },
+    {
+      "rank": 15,
+      "app_id": 3296290,
+      "total_tokens": 18939967890,
+      "total_requests": 1000843,
+      "app": {
+        "title": "Mira is the leading AI agent inside Telegram",
+        "slug": "mira",
+        "description": "Mira is a Telegram-native AI assistant.",
+        "origin_url": "https://mira.tg/",
+        "categories": [
+          "personal-agent"
+        ]
+      }
+    },
+    {
+      "rank": 17,
+      "app_id": 831074,
+      "total_tokens": 18346653738,
+      "total_requests": 205183,
+      "app": {
+        "title": "Roo Code",
+        "slug": "roo-code",
+        "description": "Roo Code is a VS Code extension that gives you a team of specialized AI agents with customizable modes for coding, architecture, debugging, and review, all with flexibility across any LLM or model provider.",
+        "origin_url": "https://github.com/RooVetGit/Roo-Cline",
+        "categories": [
+          "ide-extension",
+          "cloud-agent"
+        ]
+      }
+    },
+    {
+      "rank": 18,
+      "app_id": 190604,
+      "total_tokens": 17083165133,
+      "total_requests": 197118,
+      "app": {
+        "title": "Cline",
+        "slug": "cline",
+        "description": "Cline is an open-source AI coding agent that lives inside your IDE, autonomously exploring your codebase, editing files, running terminal commands, and using browser automation.",
+        "origin_url": "https://cline.bot/",
+        "categories": [
+          "ide-extension",
+          "cli-agent"
+        ]
+      }
+    },
+    {
+      "rank": 19,
+      "app_id": 2917963,
+      "total_tokens": 17082166154,
+      "total_requests": 86793,
+      "app": {
+        "title": "PaperGen Terminus-2 Agent",
+        "slug": null,
+        "description": null,
+        "origin_url": "https://papergen.afterquery.com/",
+        "categories": []
+      }
+    },
+    {
+      "rank": 21,
+      "app_id": 2511276,
+      "total_tokens": 8652467722,
+      "total_requests": 177801,
+      "app": {
+        "title": "VidMuse",
+        "slug": "vidmuse",
+        "description": "Generate music videos, shorts, and more from audio",
+        "origin_url": "https://vidmuse.ai/",
+        "categories": [
+          "video-gen"
+        ]
+      }
+    },
+    {
+      "rank": 22,
+      "app_id": 142576,
+      "total_tokens": 7964635042,
+      "total_requests": 475163,
+      "app": {
+        "title": "SillyTavern",
+        "slug": "sillytavern",
+        "description": "SillyTavern is the LLM frontend for power users, a chat interface that connects to any model and gives deep control through character creation, roleplay, and prompt customization.",
+        "origin_url": "https://sillytavern.app/",
+        "categories": [
+          "roleplay"
+        ]
+      }
+    },
+    {
+      "rank": 26,
+      "app_id": 701440,
+      "total_tokens": 6042647952,
+      "total_requests": 1591392,
+      "app": {
+        "title": "One API",
+        "slug": null,
+        "description": null,
+        "origin_url": "https://github.com/sentinel-service/ai-relay-server",
+        "categories": []
+      }
+    },
+    {
+      "rank": 28,
+      "app_id": 2271484,
+      "total_tokens": 5640370734,
+      "total_requests": 2626720,
+      "app": {
+        "title": "wsup.ai - Chat with AI Characters Online for Free",
+        "slug": null,
+        "description": null,
+        "origin_url": "https://wsup.ai/",
+        "categories": [
+          "roleplay"
+        ]
+      }
+    },
+    {
+      "rank": 29,
+      "app_id": 2524738,
+      "total_tokens": 5627092060,
+      "total_requests": 491641,
+      "app": {
+        "title": "LangChain",
+        "slug": "langchain",
+        "description": "",
+        "origin_url": "https://docs.langchain.com/",
+        "categories": []
+      }
+    },
+    {
+      "rank": 30,
+      "app_id": 2235067,
+      "total_tokens": 5454179586,
+      "total_requests": 1585581,
+      "app": {
+        "title": "HammerAI",
+        "slug": "hammerai",
+        "description": "Chat with AI characters for free",
+        "origin_url": "https://www.hammerai.com/",
+        "categories": [
+          "roleplay"
+        ]
+      }
+    },
+    {
+      "rank": 32,
+      "app_id": 188881,
+      "total_tokens": 4308587773,
+      "total_requests": 335121,
+      "app": {
+        "title": "Chub AI",
+        "slug": "chub-ai",
+        "description": "GenAI for everyone",
+        "origin_url": "https://chub.ai/",
+        "categories": [
+          "roleplay"
+        ]
+      }
+    }
+  ]
+}
